@@ -261,12 +261,15 @@ ul{
 	cursor: pointer;
 	margin: 0 10px;
 	border-radius: 50%;
+	text-align: center;
+	line-height: 20px;
 }
 
 .nav .active {
 	background: red;
 	text-align: center;
 }
+
 .seconddiv{
 	height: 184px;
 	margin: 0 auto;
