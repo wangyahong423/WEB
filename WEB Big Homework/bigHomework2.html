@@ -7,7 +7,7 @@
 </head>
 <body>
 	<!-- 顶部 -->
-	<div class="topdiv">
+	<div class="topdiv" id="topdiv">
 		<div class="tdiv1">
 			<div class="tdiv1-1">
 				<div class="tword1-1">
@@ -96,6 +96,7 @@
 		</ul>
 		<img style="float: left;" src="img/ff_03.jpg" alt="">
 	</div>
+	
 <!-- 中间盒子 -->
 	<div class="centerbox">
 		<p class="cenp">首页>美容护肤/美体/精油>防晒>韩国 RE:CIPE 水晶清爽防水防晒喷雾SPF50 150ml/瓶</p>
@@ -270,6 +271,20 @@
 	</div>
 </body>
 <script type="text/javascript">
+	//顶部固定
+	var topdiv = document.getElementById('topdiv');
+	window.onload = function(){
+		window.onscroll = function(){
+			var st = document.documentElement.scrollTop || document.body.scrollTop;
+			if(st>168){
+				topdiv.style.position = "fixed";
+				topdiv.style.zIndex = 1111;
+			}
+			else{
+				topdiv.style.position = "static";
+			}
+		}
+	}
 	//鼠标移动显示图片事件
 	var bigtu = document.getElementById('bigtu');
 	var bigtu1 = document.getElementById('bigtu1');
@@ -393,11 +408,6 @@
 	var a = document.getElementById('a');
 	function gouonclick(){
 		a.style.display = "block";
-		// body.style.bgroundColor = "#dedcd8";
-		// a.style.zIndex=1;
-		// bodydiv.style.zIndex = 999;
-		// body.style.bgroundColor = "#dedcd8";
-		//a.style.zIndex=1;
 	}
 </script>
 </html>
