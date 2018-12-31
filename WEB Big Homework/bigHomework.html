@@ -8,7 +8,7 @@
 </head>
 <body>
 	<!-- 顶部 -->
-	<div class="topdiv">
+	<div class="topdiv" id="topdiv">
 		<div class="tdiv1">
 			<div class="tdiv1-1">
 				<div class="tword1-1">
@@ -48,7 +48,7 @@
 			<div class="tdiv1-2">
 				<img src="img/logo_03.jpg">
 				<div class="indiv1">
-					<input placeholder="输入商品网址或关键词，直通全网，快速帮5购" class="inleft" type="" name="">
+					<input  placeholder="输入商品网址或关键词，直通全网，快速帮5购" class="inleft" type="" name="">
 					<div class="inright">
 						<a class="sou" href="">搜全网</a>
 					</div>
@@ -329,10 +329,10 @@
 				</ul>
 			</div>
 			<div class="cdiv1-4">
-				<img src="img/1(1).jpg">
-				<img style="margin-left: -4px;" src="img/2.jpg">
-				<img style="margin-left: -5px;" src="img/3(1).png">
-				<a href="https://wangyahong423.github.io/WEB/WEB%20Big%20Homework/bigHomework2.html"><img style="margin-left: -5px;" src="img/qqq.png"></a>
+				<img style="float: left;" src="img/1(1).jpg">
+				<img style=" float: left;" src="img/2.jpg">
+				<img style=" float: left;" src="img/3(1).png">
+				<a href="https://wangyahong423.github.io/WEB/WEB%20Big%20Homework/bigHomework2.html"><img style=" float: left;" src="img/qqq.png"></a>
 			</div>
 			<div class="cdiv1-5">
 				<div class="cdiv1-5-1">
@@ -347,7 +347,7 @@
 					<div class="cdiv1-5-1-3">
 						<select onchange="change()" class="selec">
 							<option id="op">10</option>
-							<option id="op" selected="">30</option>
+							<option id="op" selected>30</option>
 							<option id="op">50</option>
 							<option id="op">100</option>
 						</select>
@@ -476,17 +476,19 @@
 	
 	<script type="text/javascript">
 		//固定导航栏
-		window.onload = function(){
-			var tdiv1 = document.getElementsByClassName('topdiv')[0];
-			window.onscroll = function(){
-				var st = document.documentElement.scrollTop || document.body.scrollTop;
-				if(st>170){
-					tdiv1.style.position = 'fixed';
-				}else{
-					tdiv1.style.position = 'static';
+		var topdiv = document.getElementById('topdiv');
+			window.onload = function(){
+				window.onscroll = function(){
+					var st = document.documentElement.scrollTop || document.body.scrollTop;
+					if(st>168){
+						topdiv.style.position = "fixed";
+						topdiv.style.zIndex = 1111;
+					}
+					else{
+						topdiv.style.position = "static";
+					}
 				}
 			}
-		}
 		//帮帮快讯的匀速轮播
 		var tiao = document.getElementById('tiao');
 		console.log(tiao);
@@ -598,12 +600,15 @@
 		}
 		//页面打开时自动滚动切换
 		timer = setInterval(next, 2000);
+
+
 		//通过点击改变option的值，并且赋值给span
 		var yuan = document.getElementById('yuan');
 		var option = document.getElementsByTagName('option');
 		console.log(yuan.innerText);
 		function change(){
 			for(var i=0;i<option.length;i++){
+				console.log(option[i].selected);
 				if(option[i].selected){
 					var va = "￥"+option[i].value;
 					console.log(va);
