@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="bigHomework2.css">
 </head>
 <body>
+	
 	<!-- 顶部 -->
 	<div class="topdiv" id="topdiv">
 		<div class="tdiv1">
@@ -47,7 +48,7 @@
 			<div class="tdiv1-2">
 				<img src="img/logo_03.jpg">
 				<div class="indiv1">
-					<input placeholder="输入商品网址或关键词，直通全网，快速帮5购" class="inleft" type="" name="">
+					<input  placeholder="输入商品网址或关键词，直通全网，快速帮5购" class="inleft" type="" name="">
 					<div class="inright">
 						<a class="sou" href="">搜全网</a>
 					</div>
@@ -84,7 +85,9 @@
 	</div>
 <!-- 黑盒子 -->
 	<div class="blackdiv">
-		<ul style="float: left;">
+		<div style="margin:0 auto;height: 40px;
+	width: 1180px;">
+			<ul style="float: left;width: 1016px;">
 			<li class="li1"><a style="font-size: 12px;color: white;" href="https://wangyahong423.github.io/WEB/WEB%20Big%20Homework/bigHomework.html">首页</a></li>
 			<li class="li2">热门品牌</li>
 			<li class="li2">美妆个护</li>
@@ -95,6 +98,8 @@
 			<li class="li2">跨境购</li>
 		</ul>
 		<img style="float: left;" src="img/ff_03.jpg" alt="">
+		</div>
+		
 	</div>
 	
 <!-- 中间盒子 -->
@@ -172,11 +177,17 @@
 				</div>
 			</div>
 			<div class="centerright">
-				<img src="img/ww_07.jpg" alt="">
+				<img style="float: left;" src="img/ww_07.jpg" alt="">
 			</div>
 			
 		</div>
-		<img style="margin-left: 170px;" src="img/a_07.jpg" alt="">
+		<div style="width: 100%;">
+			<div style="margin:0 auto;width: 1180px;">
+				<img  src="img/a_07.jpg" alt="">
+			</div>
+			
+		</div>
+		
 	</div>
 <!-- 倒数第二个盒子 -->
 	<div class="seconddiv">
@@ -264,48 +275,53 @@
 	</div>
 	<div class="a" id="a">
 		<div class="bodydiv" id="bodydiv">
-		<img src="img/rr11_02.jpg" alt="">
-		<p class="goon">继续购物</p>
-		<p class="jiesuan">去购物车结算</p>
-	</div>
+			<div class="cha">
+				<span onclick="chaonclick()" style="float: right;padding-right: 7px;font-size: 20px;cursor: pointer;">×</span>
+			</div>
+			<img src="img/rr11_02.jpg" alt="">
+			<p class="goon" onclick="chaonclick()">继续购物</p>
+			<p class="jiesuan">去购物车结算</p>
+		</div>
 	</div>
 </body>
 <script type="text/javascript">
 	//顶部固定
-	var topdiv = document.getElementById('topdiv');
-	window.onload = function(){
-		window.onscroll = function(){
-			var st = document.documentElement.scrollTop || document.body.scrollTop;
-			if(st>168){
-				topdiv.style.position = "fixed";
-				topdiv.style.zIndex = 1111;
-			}
-			else{
-				topdiv.style.position = "static";
-			}
-		}
-	}
+	// var topdiv = document.getElementById('topdiv');
+	// window.onload = function(){
+	// 	window.onscroll = function(){
+	// 		var st = document.documentElement.scrollTop || document.body.scrollTop;
+	// 		if(st>168){
+	// 			topdiv.style.position = "fixed";
+	// 			topdiv.style.zIndex = 1111;
+	// 		}
+	// 		else{
+	// 			topdiv.style.position = "static";
+	// 		}
+	// 	}
+	// }
+
+	
 	//鼠标移动显示图片事件
 	var bigtu = document.getElementById('bigtu');
 	var bigtu1 = document.getElementById('bigtu1');
 	var sp = document.getElementById('sp');
 	var sp1 = document.getElementById('sp1');
 	function mouseover0(){
-		sp.style.border = 2+"px solid #ff9003";
+		sp.style.border = "2px solid #ff9003";
 		bigtu1.setAttribute('src',"img/pp0.jpeg");
 		Bimg.setAttribute('src',"img/pp0.jpeg");
 	}
 	function mouseout0(){
-		sp.style.border = 0+"px";
+		sp.style.border = "2px solid white";
 	}
 	function mouseover1(){
-		sp.style.border = 0+"px";
-		sp1.style.border = 2+"px solid #ff9003";
+		sp.style.border = "2px solid white";
+		sp1.style.border = "2px solid #ff9003";
 		bigtu1.setAttribute('src',"img/pp1.jpeg");
 		Bimg.setAttribute('src',"img/pp1.jpeg");
 	}
 	function mouseout1(){
-		sp1.style.border = 0+"px";
+		sp1.style.border = "2px solid white";
 	}
 
 	//放大镜效果
@@ -382,6 +398,7 @@
 	function jianonclick(){
 		var k = zi.innerHTML;
 		if(k == 1){
+			jian.style.cursor = 'not-allowed';
 			zi.innerHTML = 1;
 		}else{
 			zi.innerHTML--;
@@ -395,7 +412,8 @@
 		if(k < 5){
 			zi.innerHTML++;
 			zi.innerText = zi.innerHTML;
-		}else if(zi.innerHTML == 5){
+		}else{
+			jia.style.cursor = 'not-allowed';
 			zi.innerHTML = 5;
 			zi.innerText = zi.innerHTML;
 		}
@@ -408,6 +426,9 @@
 	var a = document.getElementById('a');
 	function gouonclick(){
 		a.style.display = "block";
+	}
+	function chaonclick(){
+		a.style.display = "none";
 	}
 </script>
 </html>
