@@ -149,13 +149,13 @@
 					</div>
 					<p class="hp4">数量</p>
 					<div class="hd2">
-						<div id="jian" class="jian" onclick="jianonclick()">
+						<div id="jian" class="jian" onclick="jianonclick()" onmouseover="jianmouseover()" onmouseout="jianmouseout()">
 							<p class="jianhao">-</p>
 						</div>
 						<div class="shuzi">
-							<p id="zi" class="zi">1</p>
+							<input id="zi" class="zi" style="width:47px;height: 24px; " type="" name="" value="1">
 						</div>
-						<div id="jia" class="jia" onclick="jiaonclick()">
+						<div id="jia" class="jia" onclick="jiaonclick()" onmouseover="jiamouseover()" onmouseout="jiamouseout()">
 							<p class="jiahao">+</p>
 						</div>
 					</div>
@@ -394,29 +394,44 @@
 	var jian = document.getElementById('jian');
 	var jia = document.getElementById('jia');
 	var zi = document.getElementById('zi');
-	// console.log(zi.innerHTML);
 	function jianonclick(){
-		var k = zi.innerHTML;
-		if(k == 1){
+		if(zi.value == 1){
 			jian.style.cursor = 'not-allowed';
-			zi.innerHTML = 1;
+			zi.value = 1;
 		}else{
-			zi.innerHTML--;
-			zi.innerText = zi.innerHTML;
-			console.log(zi.innerHTML);
+			zi.value--;
+			zi.value = zi.value;
 		}
 	}
 	function jiaonclick(){
-		var k =zi.innerHTML;
-		console.log(zi.firstChild);
-		if(k < 5){
-			zi.innerHTML++;
-			zi.innerText = zi.innerHTML;
+		if(zi.value < 5){
+			zi.value++;
 		}else{
 			jia.style.cursor = 'not-allowed';
-			zi.innerHTML = 5;
-			zi.innerText = zi.innerHTML;
 		}
+	}
+	function jianmouseover(){
+		if(zi.value==1){
+			jian.style.cursor = 'not-allowed';
+		}
+		else{
+			jian.style.cursor = 'pointer';
+		}
+	}
+	function jianmouseout(){
+		jian.style.cursor = 'pointer';
+	}
+	function jiamouseover(){
+		if(zi.value==5){
+			jia.style.cursor = 'not-allowed';
+		}
+		else{
+			jia.style.cursor = 'pointer';
+		}
+	}
+	function jiamouseout(){
+		jia.style.cursor = 'pointer';
+
 	}
 
 	//加入购物车
