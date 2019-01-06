@@ -118,10 +118,10 @@
 				</div>
 				<div class="xiaotu">
 					<img id="spanl" src="img/spanl.jpg" alt="">
-					<div id="sp" class="sp" onmouseover="mouseover0()" onmouseout="mouseout0()">
+					<div id="sp" class="sp">
 						<img src="img/sp0.jpeg">
 					</div>
-					<div id="sp1" class="sp1" onmouseover="mouseover1()" onmouseout="mouseout1()">
+					<div id="sp1" class="sp1">
 						<img src="img/sp1.jpeg">
 					</div>
 					<img id="spanr" src="img/spanr.jpg" alt="">
@@ -306,22 +306,39 @@
 	var bigtu1 = document.getElementById('bigtu1');
 	var sp = document.getElementById('sp');
 	var sp1 = document.getElementById('sp1');
-	function mouseover0(){
+	sp.onmouseover = function(){
 		sp.style.border = "2px solid #ff9003";
+		sp1.style.border = "2px solid white";
 		bigtu1.setAttribute('src',"img/pp0.jpeg");
 		Bimg.setAttribute('src',"img/pp0.jpeg");
 	}
-	function mouseout0(){
-		sp.style.border = "2px solid white";
-	}
-	function mouseover1(){
+	sp1.onmouseover = function(){
 		sp.style.border = "2px solid white";
 		sp1.style.border = "2px solid #ff9003";
 		bigtu1.setAttribute('src',"img/pp1.jpeg");
 		Bimg.setAttribute('src',"img/pp1.jpeg");
 	}
-	function mouseout1(){
+
+	//点击切换换图片
+	var spanl = document.getElementById('spanl');
+	var spanr = document.getElementById('spanr');
+	spanl.onmouseover=function(){
+		spanl.style.cursor='pointer';
+	}
+	spanl.onclick=function(){
 		sp1.style.border = "2px solid white";
+		sp.style.border = "2px solid #ff9003";
+		bigtu1.setAttribute('src',"img/pp0.jpeg");
+		Bimg.setAttribute('src',"img/pp0.jpeg");
+	}
+	spanr.onmouseover=function(){
+		spanr.style.cursor='pointer';
+	}
+	spanr.onclick=function(){
+		sp1.style.border = "2px solid #ff9003";
+		sp.style.border = "2px solid white";
+		bigtu1.setAttribute('src',"img/pp1.jpeg");
+		Bimg.setAttribute('src',"img/pp1.jpeg");
 	}
 
 	//放大镜效果
@@ -348,11 +365,6 @@
 		var ev = ev || window.event;
 		var oL = ev.clientX - cleft.offsetLeft - img1.offsetLeft - slider.offsetWidth/2 - center.offsetLeft;
 		var oT = ev.clientY - cleft.offsetTop - img1.offsetTop - slider.offsetHeight/2 -center.offsetTop;
-		console.log(ev.clientX);
-		console.log(img1.offsetLeft);
-		console.log(cleft.offsetLeft);
-		console.log(slider.offsetWidth);
-
 		var oMaxw = img1.offsetWidth - slider.offsetWidth;
 		var oMaxh = img1.offsetHeight - slider.offsetHeight;
 
